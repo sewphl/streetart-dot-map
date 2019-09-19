@@ -51,6 +51,9 @@ GEM
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
     dotenv (2.7.5)
+    dotenv-rails (2.7.5)
+      dotenv (= 2.7.5)
+      railties (>= 3.2, < 6.1)
     equalizer (0.0.11)
     erubis (2.7.0)
     ffi (1.11.1)
@@ -163,6 +166,7 @@ DEPENDENCIES
   byebug
   date
   dotenv
+  dotenv-rails
   listen (~> 3.0.5)
   pry
   puma (~> 3.0)
