@@ -1,7 +1,5 @@
 #!/usr/bin/env ruby
 require 'twitter'
-require 'json'
-require 'nice_hash'
 require 'date'
 require 'pry'
 require 'dotenv/load'
@@ -17,30 +15,23 @@ begin
 
     rClient = Twitter::REST::Client.new(config)
     sClient = Twitter::Streaming::Client.new(config)
-
     # topics to watch
     topics = ['streetart']
     sClient.filter(:track => topics.join(',')) do |tweet|
-        if (tweet.is_a?(Twitter::Tweet) && tweet.uris.length>0 && tweet.geo?)
-          ##if tweet.uris.length>0
-            ##binding.pry
-          ##end
-          puts tweet.uris[0].display_url
-          puts tweet.geo.coordinates[0]
-          puts tweet.geo.coordinates[1]
-          puts tweet.created_at.year
-          puts tweet.created_at.month
-          puts tweet.created_at.day
-          puts tweet.created_at.year.to_s + "-" + tweet.created_at.month.to_s + "-" + tweet.created_at.day.to_s
-          ##puts tweet.created_at.hour
-          ##puts tweet.created_at.min
-          ##puts tweet.created_at.sec
-          ##puts tweet.text
+        ##puts "whee"
+        if (tweet.is_a?(Twitter::Tweet) )  ##&& tweet.uris.length>0 && tweet.geo?
+          ##puts "whee2"
+          binding.pry
+          #Tweet.create!(:text => tweet.text,
+          #:user_name => tweet.user.name, :user_id => tweet.user.id,
+          #:timestamp => tweet.created_at, :year => tweet.created_at.year,
+          #:month => tweet.created_at.month, :day => tweet.created_at.day)
+          ##binding.pry
 
         end
     end
 rescue Exception => e
-    puts 'error, waiting for 5s: ' + e.class.to_s
-    sleep 5
+    puts 'error, waiting for 3s: ' + e.class.to_s
+    sleep 3
 end
 end
