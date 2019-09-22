@@ -1,4 +1,4 @@
 class Tweet < ApplicationRecord
-  has_many :tweets_users
-  has_many :users, through: :tweets_users
+  has_many :user_tweets
+  has_many :users, through: :user_tweets
 end
