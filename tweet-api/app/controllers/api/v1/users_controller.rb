@@ -4,15 +4,16 @@ class Api::V1::UsersController < ApplicationController
   #GET /users
   def index
     @users = User.all
-
     render json: @users
+    ##users_json = UserSerializer.new(@users).serialized_json
+    ##render json: users_json
   end
 
   #GET /users/1
   def show
-    ##render json: @user
-    user_json = UserSerializer.new(@user).serialized_json
-    render json: user_json
+    render json: @user
+    ##user_json = UserSerializer.new(@user).serialized_json
+    ##render json: user_json
   end
 
   #POST /users
@@ -41,6 +42,11 @@ class Api::V1::UsersController < ApplicationController
   end
 
   private
+
+  def set_user
+    @user = User.find(params[:id])
+  end
+
   def user_params
     params.require(:user).permit(:username, :password, :email)
   end
