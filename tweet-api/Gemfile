@@ -29,6 +29,7 @@ gem 'pry'
 gem 'dotenv'
 gem 'dotenv-rails'
 gem 'bcrypt'
+gem 'fast_jsonapi'
 
 gem 'foreman', '~> 0.82.0'
 
