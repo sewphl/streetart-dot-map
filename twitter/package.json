@@ -3,12 +3,15 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "cors": "^2.8.5",
+    "http-proxy-middleware": "^0.20.0",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-redux": "^7.1.1",
     "react-scripts": "3.1.2",
     "redux": "^4.0.4",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "remote-redux-devtools": "^0.5.16"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -16,6 +19,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  "proxy": "http://localhost:3001",
   "eslintConfig": {
     "extends": "react-app"
   },
@@ -30,5 +34,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "case-sensitive-paths-webpack-plugin": "^2.2.0"
   }
 }
