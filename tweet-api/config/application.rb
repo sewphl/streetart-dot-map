@@ -18,6 +18,7 @@ Bundler.require(*Rails.groups)
 
 module TweetApi
   class Application < Rails::Application
+    ##config.load_defaults 5.2
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
@@ -25,7 +26,18 @@ module TweetApi
     # Only loads a smaller set of middleware suitable for API only apps.
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
+
+    ##config.middleware.use Rack::Cors do
+    ##  allow do
+    ##    origins '*'
+    ##    resource '*',
+    ##      :headers => :any,
+    ##      :methods => [:get, :post, :delete, :put, :options]
+    ##  end
+    ##end
     config.api_only = true
-    config.autoload_paths += %W(#{config.root}/lib)
+    config.middleware.use ActionDispatch::Cookies
+    config.middleware.use ActionDispatch::Session::CookieStore, key: '_cookie_name'
+    ##config.autoload_paths += %W(#{config.root}/lib)
   end
 end
