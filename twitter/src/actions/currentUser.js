@@ -1,7 +1,7 @@
 // synchronous action creators
 export const setCurrentUser = user => {
   return {
-    type: "SET_CURRENT_USER"
+    type: "SET_CURRENT_USER",
     user
   }
 }
@@ -15,10 +15,7 @@ export const clearCurrentUser = () => {
 // asynchronous action creators
 export const login = credentials => {
   return dispatch => {
-    //const proxyurl = "https://cors-anywhere.herokuapp.com/";
-//    return fetch((proxyurl + "http://localhost:3000/api/v1/login"), {
   return fetch(("http://localhost:3000/api/v1/login"), {
-      //mode: "no-cors",
       credentials: "include",
       method: "POST",
       headers: {
@@ -42,10 +39,7 @@ export const login = credentials => {
 
 export const getCurrentUser = () => {
   return dispatch => {
-    //const proxyurl = "https://cors-anywhere.herokuapp.com/";
-    //return fetch((proxyurl + "http://localhost:3000/api/v1/get_current_user"), {
     return fetch(("http://localhost:3000/api/v1/get_current_user"), {
-      //mode: "no-cors",
       credentials: "include",
       method: "GET",
       headers: {

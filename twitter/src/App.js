@@ -11,7 +11,6 @@ import About from './components/About'
 import Login from './components/Login'
 import Map from './components/Map'
 import Mapbox from './components/Mapbox'
-//require('dotenv').config()
 
 class App extends React.Component {
   componentDidMount() {
