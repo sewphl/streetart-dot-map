@@ -1,8 +1,14 @@
 // synchronous action creators
 export const setCurrentUser = user => {
   return {
-    type: "SET_CURRENT_USER",
+    type: "SET_CURRENT_USER"
     user
+  }
+}
+
+export const clearCurrentUser = () => {
+  return {
+    type: "CLEAR_CURRENT_USER"
   }
 }
 
@@ -55,5 +61,15 @@ export const getCurrentUser = () => {
         }
       })
       .catch(console.log)
+  }
+}
+
+export const logout = event => {
+  return dispatch => {
+    dispatch(clearCurrentUser())
+    return fetch('http://localhost:3000/api/v1/logout', {
+      credentials: "include",
+      method: "DELETE"
+    })
   }
 }
