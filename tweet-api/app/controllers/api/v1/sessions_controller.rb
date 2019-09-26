@@ -2,33 +2,8 @@ require 'pry'
 
 class Api::V1::SessionsController < ApplicationController
 
-#  before_filter :current_user, :cors_preflight_check
-#  after_filter :cors_set_access_control_headers
-
-#  def cors_set_access_control_headers
-#    headers['Access-Control-Allow-Origin'] = '*'
-#    headers['Access-Control-Allow-Methods'] = 'POST, GET, OPTIONS'
-#    headers['Access-Control-Allow-Headers'] = '*'
-#    headers['Access-Control-Max-Age'] = "1728000"
-#  end
-
-  # If this is a preflight OPTIONS request, then short-circuit the
-  # request, return only the necessary headers and return an empty
-  # text/plain.
-
-#  def cors_preflight_check
-#    if request.method == :options
-#      headers['Access-Control-Allow-Origin'] = '*'
-#      headers['Access-Control-Allow-Methods'] = 'POST, GET, OPTIONS'
-#      headers['Access-Control-Allow-Headers'] = '*'
-#      headers['Access-Control-Request-Method'] = '*'
-#      headers['Access-Control-Max-Age'] = '1728000'
-#      render :text => '', :content_type => 'text/plain'
-#    end
-#  end
-
   def create
-    ##byebug
+    byebug
     @user = User.find_by(email: params[:session][:email])
 
     if @user && @user.authenticate(params[:session][:password])
@@ -51,4 +26,12 @@ class Api::V1::SessionsController < ApplicationController
       }
     end
   end
+
+  def destroy
+    session.clear
+    render json: {
+      notice: "Logged out"
+    }, status: :ok
+  end
+
 end
