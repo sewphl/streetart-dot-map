@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { NavLink } from 'react-router-dom'
+import Logout from './Logout'
 
 /* Add basic styling for NavLinks */
 const link = {
@@ -13,7 +14,7 @@ const link = {
 }
 
 /* add the navbar component */
-const NavBar = () => {
+const NavBar = ({currentUser, loggedIn}) => {
   return(
   <div>
     <NavLink
@@ -59,7 +60,15 @@ const NavBar = () => {
         background: 'darkblue'
       }}
     >Mapbox</NavLink>
+{ loggedIn ? <><p>Logged in as {currentUser.username}</p><Logout/></> : null}
   </div>
   )}
 
-  export default NavBar;
+  const mapStateToProps = ({currentUser}) => {
+    return {
+      currentUser,
+      loggedIn: !!currentUser
+    }
+  }
+
+  export default connect(mapStateToProps)(NavBar)
