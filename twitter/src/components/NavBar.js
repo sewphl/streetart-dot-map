@@ -43,6 +43,22 @@ const NavBar = () => {
         background: 'darkblue'
       }}
     >Login</NavLink>
+    <NavLink
+      to="/map"
+      exact
+      style={link}
+      activeStyle={{
+        background: 'darkblue'
+      }}
+    >Map</NavLink>
+    <NavLink
+      to="/mapbox"
+      exact
+      style={link}
+      activeStyle={{
+        background: 'darkblue'
+      }}
+    >Mapbox</NavLink>
   </div>
   )}
 
