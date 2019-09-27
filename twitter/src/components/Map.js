@@ -16,7 +16,8 @@ export class MapContainer extends Component {
 
     this.state = {
       streetart: [{latitude: 39.95, longitude: -75.165},
-              {latitude: 39.952, longitude: -75.1645}]
+              {latitude: 39.952, longitude: -75.1645}],
+      streetart_db: ""
     }
   }
 

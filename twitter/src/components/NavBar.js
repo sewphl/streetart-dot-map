@@ -60,7 +60,17 @@ const NavBar = ({currentUser, loggedIn}) => {
         background: 'darkblue'
       }}
     >Mapbox</NavLink>
-{ loggedIn ? <><p>Logged in as {currentUser.username}</p><Logout/></> : null}
+    {loggedIn ? <>
+      <NavLink
+        to="/favorites"
+        exact
+        style={link}
+        activeStyle={{
+          background: 'darkblue'
+        }}
+      >Favorites</NavLink>
+      </> : null}
+      { loggedIn ? <><p>Logged in as {currentUser.username}</p><Logout/></> : null}
   </div>
   )}
 
