@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Map, GoogleApiWrapper, InfoWindow, Marker  } from 'google-maps-react';
+import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 
 const mapStyles = {
   position: 'absolute',
@@ -11,17 +13,19 @@ const mapStyles = {
 };
 
 export class MapContainer extends Component {
-  constructor(props) {
-    super(props);
 
-    this.state = {
-      streetart: [{latitude: 39.95, longitude: -75.165},
-              {latitude: 39.952, longitude: -75.1645}],
-      streetart_db: ""
-    }
-  }
+//  constructor(props) {
+//    super(props);
+
+//    this.state = {
+//      streetart: [{latitude: 39.95, longitude: -75.165},
+//              {latitude: 39.952, longitude: -75.1645}],
+//      streetart: this.props.theTweets
+//    }
+//  }
 
   displayMarkers = () => {
+    debugger
     return this.state.streetart.map((art, index) => {
       return <Marker key={index} id={index} position={{
        lat: art.latitude,

@@ -60,7 +60,7 @@ const NavBar = ({currentUser, loggedIn}) => {
         background: 'darkblue'
       }}
     >Mapbox</NavLink>
-    {loggedIn ? <>
+    {loggedIn ?
       <NavLink
         to="/favorites"
         exact
@@ -69,7 +69,7 @@ const NavBar = ({currentUser, loggedIn}) => {
           background: 'darkblue'
         }}
       >Favorites</NavLink>
-      </> : null}
+      : null}
       { loggedIn ? <><p>Logged in as {currentUser.username}</p><Logout/></> : null}
   </div>
   )}
