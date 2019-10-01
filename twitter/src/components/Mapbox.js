@@ -4,10 +4,9 @@ import MapGL, {NavigationControl} from 'react-map-gl';
 const TOKEN = process.env.REACT_APP_MAPBOX_KEY;
 
 const navStyle = {
-  position: 'absolute',
-  top: 0,
-  left: 0,
-  padding: '10px'
+  margin: 'auto',
+  width: '70%',
+  padding: '20px'
 };
 
 export default class Map extends Component {
