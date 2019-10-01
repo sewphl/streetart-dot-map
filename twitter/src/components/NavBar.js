@@ -13,6 +13,7 @@ import {
   NavItem,
   NavLink
 } from 'reactstrap'
+import Container from 'react-bootstrap/Container'
 
 /* Add basic styling for NavLinks */
 //const link = {
@@ -27,7 +28,7 @@ import {
 /* add the navbar component */
 const NavBar = ({currentUser, loggedIn}) => {
   return(
-  <container>
+  <Container>
    <Navbar sticky="top" className="bg-light justify-content-between">
     <NavLink tag={RRNavLink}
       to="/"
@@ -64,14 +65,7 @@ const NavBar = ({currentUser, loggedIn}) => {
       //  background: 'darkblue'
       //}}
     >Map</NavLink>
-    <NavLink tag={RRNavLink}
-      to="/mapbox"
-      exact
-      //style={link}
-      //activeStyle={{
-      //  background: 'darkblue'
-      //}}
-    >Mapbox</NavLink>
+
     {loggedIn ?
       <NavLink tag={RRNavLink}
         to="/favorites"
@@ -85,7 +79,7 @@ const NavBar = ({currentUser, loggedIn}) => {
       { loggedIn ?
       <>  <p>Logged in as {currentUser.username}</p><Logout/></> : null}
       </Navbar>
-  </container>
+  </Container>
   )}
 
   const mapStateToProps = ({currentUser}) => {
