@@ -33,9 +33,9 @@ class App extends React.Component {
         </Helmet>
         <NavBar />
         <Route exact path='/' component={Home} />
-        <Route exact path='/about' component={About} />
+        <Route exact path='/about' component={About} allTheTweets = {this.props.tweets}/>
         <Route exact path='/login' component={Login} />
-        <Route exact path='/map' component={MapContainer} allTheTweets = {this.props.tweets} />
+        <Route exact path='/map' render={(props) => <MapContainer myTweets={this.props.tweets}/>} />
         <Route exact path='/mapbox' component={Map} />
         <Route exact path='/favorites' component={Favorites} />
       </div>
