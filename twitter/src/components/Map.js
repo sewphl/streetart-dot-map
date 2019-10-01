@@ -4,12 +4,9 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 
 const mapStyles = {
-  position: 'absolute',
-  top: 0,
-  left: 0,
-  padding: '10px',
-  width: 500,
-  height: 500
+  margin: 'auto',
+  width: '70%',
+  padding: '20px'
 };
 
 export class MapContainer extends Component {

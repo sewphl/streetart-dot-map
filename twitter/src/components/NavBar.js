@@ -28,7 +28,7 @@ import {
 const NavBar = ({currentUser, loggedIn}) => {
   return(
   <container>
-   <Navbar sticky="top" className="bg-light  justify-content-between">
+   <Navbar sticky="top" className="bg-light justify-content-between">
     <NavLink tag={RRNavLink}
       to="/"
       /* set exact so it knows to only set activeStyle when route is deeply equal to link */
