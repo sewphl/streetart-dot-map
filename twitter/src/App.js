@@ -11,6 +11,7 @@ import Login from './components/Login'
 import Favorites from './components/Favorites'
 import MapContainer from './components/Map'
 import Map from './components/Mapbox'
+import Infowindow from './components/Infowindow'
 import { fetchTweets } from './actions/tweets'
 import 'bootstrap/dist/css/bootstrap.min.css';
 

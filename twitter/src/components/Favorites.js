@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
+import Container from 'react-bootstrap/Container'
 
 class Favorites extends Component {
   render() {
     return (
-      <div>
+      <Container>
         <h1>favorites</h1>
-        </div>
+        </Container>
       );
     }
 }
