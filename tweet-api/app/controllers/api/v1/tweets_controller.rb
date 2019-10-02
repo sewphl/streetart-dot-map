@@ -1,30 +1,30 @@
-class Api::V1::UsersTweetsController < ApplicationController
-  before_action :set_users_tweet, only: [:show, :update]
+class Api::V1::TweetsController < ApplicationController
+  before_action :set_tweet, only: [:show, :update]
 
   def index
-    @favorites = UsersTweet.all
-    render json: @favorites
+    @tweets = Tweet.all
+    render json: @tweets
   end
 
   def new
   end
 
   def create
-    @favorite = UsersTweet.create(users_tweet_params)
+    @tweet = Tweet.create(tweet_params)
   end
 
   #GET /users/1
   def show
-    render json: @favorites
+    render json: @tweet
   end
 
   private
 
-  def set_users_tweet
-    @favorite = UsersTweet.find(params[:id])
+  def set_tweet
+    @tweet = Tweet.find(params[:id])
   end
 
-  def users_tweet_params
-    params.require(:users_tweet).permit(:tweet_id, :user_id)
+  def tweet_params
+    params.require(:tweet).permit(:text,:user_name,:user_id,:timestamp,:year,:month,:day,:url,:lon,:lat)
   end
 end
