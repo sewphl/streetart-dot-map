@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
-import { Map, GoogleApiWrapper, InfoWindow, Marker  } from 'google-maps-react';
+import { Map, GoogleApiWrapper, InfoWindow, Marker, GoogleMap } from 'google-maps-react';
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import store from '../store'
+//import Infowindow from './Infowindow'
+import Display from './Display'
+import Container from 'react-bootstrap/Container'
+
 
 const mapStyles = {
   margin: 'auto',
@@ -12,27 +16,47 @@ const mapStyles = {
 
 export class MapContainer extends Component {
 
-//  constructor(props) {
-//    super(props);
+  constructor(props) {
+    super(props);
 
-  //  this.state = {
-  //    streetart: [],
-  //  };
+    this.state = {
+      selectedTweet: [],
+      selectedURL: [],
+      selectedTweetID: [],
+      activeMarker: {},
+      showingInfoWindow: false
+      //showPopup: false
+    };
+  }
 
-  //  store.subscribe(() => {
-  //    debugger
-  //    this.setState({
-  //      streetart: store.getState().tweets
-  //    });
-  //  });
+  togglePopup() {
+    this.setState({
+     showPopup: !this.state.showPopup
+   });
+ }
 
+  onMarkerClick = (marker) => {
+    //debugger
+      this.setState({
+          selectedTweet: this.props.myTweets.tweets[marker.id].text,
+          selectedURL: this.props.myTweets.tweets[marker.id].url,
+          selectedTweetID: this.props.myTweets.tweets[marker.id].id,
+          activeMarker: marker,
+          //showPopup: true
+          showingInfoWindow: true
+          //redirect: false
+      })
+      console.log(this.state.selectedTweet)
+  }
 
-  //  this.state = {
-  //    streetart: [{lat: 39.95, lon: -75.165},
-  //            {lat: 39.952, lon: -75.1645}]
-  //  }
-  //}
-
+  onMapClicked = () => {
+  if (this.state.showingInfoWindow) {
+    this.setState({
+      showingInfoWindow: false,
+      activeMarker: null
+    })
+  }
+};
 
     displayMarkers = () => {
     //  debugger
@@ -41,16 +65,18 @@ export class MapContainer extends Component {
         return <Marker key={index} id={index} position={{
          lat: art.lon*1,
          lng: art.lat*1
-
        }}
-       onClick={() => console.log("You clicked me!")} />
+       //onClick={() => console.log("you clicked")}
+       onClick={this.onMarkerClick}
+       />
       })
     }
 
   render() {
-    console.log(this.props.myTweets.tweets)
+    //console.log(this.props.myTweets.tweets)
     //debugger
     return (
+      <>
       <Map
         google={this.props.google}
         zoom={10}
@@ -61,7 +87,20 @@ export class MapContainer extends Component {
        }}
        >
        {this.displayMarkers()}
+       { this.state.showingInfoWindow ?
+         <InfoWindow
+        //marker={this.state.activeMarker}
+        position={this.state.activeMarker.position}  pixelOffset={new this.props.google.maps.Size(0, -30)}
+        visible={true}>
+          <div>
+            <p>{this.state.selectedTweet}</p>
+            <p>{this.state.selectedURL}</p>
+          </div>
+        </InfoWindow>
+      : null
+      }
       </Map>
+      </>
     );
   }
 }
