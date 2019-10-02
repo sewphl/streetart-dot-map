@@ -3,7 +3,7 @@ require 'pry'
 class Api::V1::SessionsController < ApplicationController
 
   def create
-    byebug
+    ##byebug
     @user = User.find_by(email: params[:session][:email])
 
     if @user && @user.authenticate(params[:session][:password])
