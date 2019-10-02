@@ -13,7 +13,7 @@ class Api::V1::TweetsController < ApplicationController
     @tweet = Tweet.create(tweet_params)
   end
 
-  #GET /users/1
+  #GET /tweets/1
   def show
     render json: @tweet
   end
