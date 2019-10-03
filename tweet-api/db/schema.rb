@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190922222528) do
+ActiveRecord::Schema.define(version: 20191003173205) do
 
   create_table "tweets", force: :cascade do |t|
     t.string   "text"
@@ -27,17 +27,17 @@ ActiveRecord::Schema.define(version: 20190922222528) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "user_tweets", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "tweet_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "username"
     t.string   "password_digest"
     t.string   "email"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
-  end
-
-  create_table "users_tweets", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "tweet_id"
   end
 
 end
