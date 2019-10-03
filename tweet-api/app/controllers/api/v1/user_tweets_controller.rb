@@ -1,8 +1,8 @@
-class Api::V1::UsersTweetController < ApplicationController
+class Api::V1::UserTweetsController < ApplicationController
   before_action :set_users_tweet, only: [:show, :update]
 
   def index
-    @favorites = UsersTweet.all
+    @favorites = UserTweet.all
     render json: @favorites
   end
 
@@ -10,7 +10,7 @@ class Api::V1::UsersTweetController < ApplicationController
   end
 
   def create
-    @favorite = UsersTweet.create(users_tweet_params)
+    @favorite = UserTweet.create(users_tweet_params)
   end
 
   #GET /users/1
@@ -21,7 +21,7 @@ class Api::V1::UsersTweetController < ApplicationController
   private
 
   def set_users_tweet
-    @favorite = UsersTweet.find(params[:id])
+    @favorite = UserTweet.find(params[:id])
   end
 
   def users_tweet_params
