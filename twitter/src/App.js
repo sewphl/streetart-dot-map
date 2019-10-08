@@ -13,12 +13,14 @@ import MapContainer from './components/Map'
 import Map from './components/Mapbox'
 import PostFavorites from './components/PostFavorites'
 import { fetchTweets } from './actions/tweets'
+import { fetchUserTweets } from './actions/favorites'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 class App extends React.Component {
   componentDidMount() {
     this.props.getCurrentUser()
     this.props.fetchTweets()
+    this.props.fetchUserTweets()
   }
   render() {
     return (
@@ -48,8 +50,9 @@ class App extends React.Component {
 const mapStateToProps = state => {
   return {
     tweets: state.tweets,
-    currentUser: state.currentUser
+    currentUser: state.currentUser,
+    user_tweets: state.user_tweets
   }
 }
 
-export default connect (mapStateToProps,{getCurrentUser,fetchTweets})(App);
+export default connect (mapStateToProps,{getCurrentUser,fetchTweets, fetchUserTweets})(App);
