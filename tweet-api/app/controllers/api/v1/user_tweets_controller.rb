@@ -25,6 +25,6 @@ class Api::V1::UserTweetsController < ApplicationController
   end
 
   def users_tweet_params
-    params.require(:users_tweet).permit(:user_id, :tweet_id)
+    params.require(:users_tweet).permit(:user_id, :tweet_id, :comment)
   end
 end
