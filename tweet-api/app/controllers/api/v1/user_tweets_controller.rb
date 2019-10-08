@@ -1,5 +1,5 @@
 class Api::V1::UserTweetsController < ApplicationController
-  before_action :set_users_tweet, only: [:show, :update]
+  before_action :set_user_tweet, only: [:show, :update]
 
   def index
     @favorites = UserTweet.all
@@ -10,7 +10,7 @@ class Api::V1::UserTweetsController < ApplicationController
   end
 
   def create
-    @favorite = UserTweet.create(users_tweet_params)
+    @favorite = UserTweet.create(user_tweet_params)
   end
 
   #GET /users/1
@@ -20,11 +20,11 @@ class Api::V1::UserTweetsController < ApplicationController
 
   private
 
-  def set_users_tweet
+  def set_user_tweet
     @favorite = UserTweet.find(params[:id])
   end
 
-  def users_tweet_params
-    params.require(:users_tweet).permit(:user_id, :tweet_id, :comment)
+  def user_tweet_params
+    params.require(:user_tweet).permit(:user_id, :tweet_id, :comment)
   end
 end
