@@ -3,10 +3,10 @@ import { Map, GoogleApiWrapper, InfoWindow, Marker, GoogleMap } from 'google-map
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import store from '../store'
-//import Infowindow from './Infowindow'
 import Display from './Display'
 import Container from 'react-bootstrap/Container'
-
+import { favorite, updateFavoriteForm } from "../actions/favorites"
+import InfoWindowEx from './InfoWindowEx'
 
 const mapStyles = {
   margin: 'auto',
@@ -18,6 +18,7 @@ export class MapContainer extends Component {
 
   constructor(props) {
     super(props);
+    //this.handleSubmit = this.handleSubmit.bind(this);
 
     this.state = {
       selectedTweet: [],
@@ -25,24 +26,29 @@ export class MapContainer extends Component {
       selectedTweetID: [],
       activeMarker: {},
       showingInfoWindow: false
-      //showPopup: false
     };
   }
 
-  togglePopup() {
-    this.setState({
-     showPopup: !this.state.showPopup
-   });
- }
+  handleSubmit = (event) => {
+    event.preventDefault()
+    //debugger
+    //debugger
+    this.props.favorite(this.props.postData)
+  }
+
+//  handleSubmit(e) {
+  //  e.preventDefault()
+  //  alert('why doesnt this work')
+  //  debugger
+  //  favorite(this.props.postData)
+//  }
 
   onMarkerClick = (marker) => {
-    //debugger
       this.setState({
           selectedTweet: this.props.myTweets.tweets[marker.id].text,
           selectedURL: this.props.myTweets.tweets[marker.id].url,
           selectedTweetID: this.props.myTweets.tweets[marker.id].id,
           activeMarker: marker,
-          //showPopup: true
           showingInfoWindow: true
           //redirect: false
       })
@@ -59,9 +65,7 @@ export class MapContainer extends Component {
 };
 
     displayMarkers = () => {
-    //  debugger
       return this.props.myTweets.tweets.map((art, index) => {
-        //debugger
         return <Marker key={index} id={index} position={{
          lat: art.lon*1,
          lng: art.lat*1
@@ -73,8 +77,7 @@ export class MapContainer extends Component {
     }
 
   render() {
-    //console.log(this.props.myTweets.tweets)
-    //debugger
+    //console.log(this.props.currentUser)
     return (
       <>
       <Map
@@ -82,21 +85,29 @@ export class MapContainer extends Component {
         zoom={10}
         style={mapStyles}
         initialCenter={{
-         lat: 40.7831,
-         lng: -73.9712
+         //lat: 40.7831,
+         //lng: -73.9712
+         //lat: 34.5331,
+         //lng: 69.1661,
+         lat: 44.49899241,
+         lng: 11.34389529
        }}
        >
        {this.displayMarkers()}
        { this.state.showingInfoWindow ?
-         <InfoWindow
-        //marker={this.state.activeMarker}
+         <InfoWindowEx
         position={this.state.activeMarker.position}  pixelOffset={new this.props.google.maps.Size(0, -30)}
         visible={true}>
           <div>
             <p>{this.state.selectedTweet}</p>
-            <p>{this.state.selectedURL}</p>
+            <a href={this.state.selectedURL} target="_blank">{this.state.selectedURL}</a>
+            <form  onSubmit = {this.handleSubmit}>
+              <input type="hidden" name="user_id" value={this.props.postData.user_id = this.props.currentUser.id} />
+              <input type="hidden" name="tweet_id" value={this.props.postData.tweet_id = this.state.selectedTweetID} />
+              <br/><input type="submit" value="Add to my favorites" />
+            </form>
           </div>
-        </InfoWindow>
+        </InfoWindowEx>
       : null
       }
       </Map>
@@ -104,7 +115,14 @@ export class MapContainer extends Component {
     );
   }
 }
+  const mapStateToProps = state => {
+    return {
+      postData: state.favoritesForm
+    }
+  }
 
-export default GoogleApiWrapper({
+const WrappedContainer = GoogleApiWrapper({
     apiKey: process.env.REACT_APP_GOOGLE_MAPS_KEY
   })(MapContainer);
+
+export default connect (mapStateToProps,{updateFavoriteForm, favorite})(WrappedContainer)
