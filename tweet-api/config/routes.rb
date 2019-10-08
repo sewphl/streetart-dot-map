@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get "/api/v1/get_user_tweets", to: "api/v1/user_tweets#index"
   post "/api/v1/post_user_tweets", to: "api/v1/user_tweets#create"
   get "/api/v1/get_tweets", to: "api/v1/tweets#index"
   post "/api/v1/login", to: "api/v1/sessions#create"
