@@ -104,6 +104,7 @@ export class MapContainer extends Component {
             <form  onSubmit = {this.handleSubmit}>
               <input type="hidden" name="user_id" value={this.props.postData.user_id = this.props.currentUser.id} />
               <input type="hidden" name="tweet_id" value={this.props.postData.tweet_id = this.state.selectedTweetID} />
+              <input type="hidden" name="comment" value={this.props.postData.comment = ""} />
               <br/><input type="submit" value="Add to my favorites" />
             </form>
           </div>
