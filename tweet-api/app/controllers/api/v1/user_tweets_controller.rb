@@ -2,7 +2,8 @@ class Api::V1::UserTweetsController < ApplicationController
   before_action :set_user_tweet, only: [:show, :update]
 
   def index
-    @favorites = UserTweet.all
+    ##@favorites = UserTweet.all
+    @favorites = UserTweet.where(:user_id => current_user.id)
     render json: @favorites
   end
 
