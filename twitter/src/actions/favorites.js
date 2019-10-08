@@ -43,3 +43,12 @@ export const favorite = theFavorite => {
       .catch(console.log)
   }
 }
+
+export function fetchUserTweets() {
+  return (dispatch) => {
+    dispatch({ type: 'LOADING_USER_TWEETS' });
+    return fetch('http://localhost:3000/api/v1/get_user_tweets')
+      .then(response => response.json())
+      .then(user_tweets => dispatch({ type: 'FETCH_USER_TWEETS', payload: user_tweets}));
+  };
+}

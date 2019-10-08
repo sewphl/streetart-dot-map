@@ -29,19 +29,25 @@ export class MapContainer extends Component {
     };
   }
 
+  handleInputChange = (event) => {
+  const { name, value } = event.target
+  const updatedFavoriteInfo = {
+    ...this.props.postData,
+    [name]: value
+  }
+  //console.log(event.target.name)
+  //console.log(event.target.value)
+  console.log(updatedFavoriteInfo)
+  //debugger
+  this.props.updateFavoriteForm(updatedFavoriteInfo)
+  }
+
   handleSubmit = (event) => {
     event.preventDefault()
     //debugger
     //debugger
     this.props.favorite(this.props.postData)
   }
-
-//  handleSubmit(e) {
-  //  e.preventDefault()
-  //  alert('why doesnt this work')
-  //  debugger
-  //  favorite(this.props.postData)
-//  }
 
   onMarkerClick = (marker) => {
       this.setState({
@@ -89,8 +95,10 @@ export class MapContainer extends Component {
          //lng: -73.9712
          //lat: 34.5331,
          //lng: 69.1661,
-         lat: 44.49899241,
-         lng: 11.34389529
+         //lat: 44.49899241,
+         //lng: 11.34389529
+         lat: 41.6362,
+         lng: -70.9342
        }}
        >
        {this.displayMarkers()}
@@ -101,10 +109,11 @@ export class MapContainer extends Component {
           <div>
             <p>{this.state.selectedTweet}</p>
             <a href={this.state.selectedURL} target="_blank">{this.state.selectedURL}</a>
+            <br />
             <form  onSubmit = {this.handleSubmit}>
               <input type="hidden" name="user_id" value={this.props.postData.user_id = this.props.currentUser.id} />
               <input type="hidden" name="tweet_id" value={this.props.postData.tweet_id = this.state.selectedTweetID} />
-              <input type="hidden" name="comment" value={this.props.postData.comment = ""} />
+              <textarea name="comment" value={this.props.postData.comment} onChange={this.handleInputChange} placeholder="Add a note" cols="20" rows="5"></textarea>
               <br/><input type="submit" value="Add to my favorites" />
             </form>
           </div>
