@@ -57,6 +57,7 @@ const NavBar = ({currentUser, loggedIn}) => {
       //  background: 'darkblue'
       //}}
     >Login</NavLink>
+    {loggedIn ?
     <NavLink tag={RRNavLink}
       to="/map"
       exact
@@ -65,7 +66,7 @@ const NavBar = ({currentUser, loggedIn}) => {
       //  background: 'darkblue'
       //}}
     >Map</NavLink>
-
+    : null}
     {loggedIn ?
       <NavLink tag={RRNavLink}
         to="/favorites"

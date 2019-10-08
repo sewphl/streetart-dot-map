@@ -11,7 +11,7 @@ import Login from './components/Login'
 import Favorites from './components/Favorites'
 import MapContainer from './components/Map'
 import Map from './components/Mapbox'
-import Infowindow from './components/Infowindow'
+import PostFavorites from './components/PostFavorites'
 import { fetchTweets } from './actions/tweets'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -33,12 +33,13 @@ class App extends React.Component {
           />
         </Helmet>
         <NavBar />
-        <Route exact path='/' component={Home} />
-        <Route exact path='/about' component={About} allTheTweets = {this.props.tweets}/>
+        <Route exact path='/' render={(props) => <Home currentUser={this.props.currentUser} myTweets={this.props.tweets}/>}/>
+        <Route exact path='/about' render={(props) => <About currentUser={this.props.currentUser}/>}/>
         <Route exact path='/login' component={Login} />
-        <Route exact path='/map' render={(props) => <MapContainer myTweets={this.props.tweets}/>} />
+        <Route exact path='/map' render={(props) => <MapContainer myTweets={this.props.tweets} currentUser={this.props.currentUser}/>} />
         <Route exact path='/mapbox' component={Map} />
         <Route exact path='/favorites' component={Favorites} />
+        <Route exact path='/post_favorites' component={PostFavorites} />
       </div>
     ); //return
   } //render
@@ -46,7 +47,8 @@ class App extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    tweets: state.tweets
+    tweets: state.tweets,
+    currentUser: state.currentUser
   }
 }
 
