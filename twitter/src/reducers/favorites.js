@@ -12,16 +12,6 @@ export default (state = initialState, action) => {
       return action.postData
     case "RESET_FAVORITE":
       return initialState
-    case 'FETCH_USER_TWEETS':
-        return {
-          loading: false,
-          tweets: action.payload
-        }
-      case 'LOADING_USER_TWEETS':
-        return {
-          ...state,
-          loading: true
-        }
     default:
       return state
   }

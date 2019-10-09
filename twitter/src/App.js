@@ -13,7 +13,7 @@ import MapContainer from './components/Map'
 import Map from './components/Mapbox'
 import PostFavorites from './components/PostFavorites'
 import { fetchTweets } from './actions/tweets'
-import { fetchUserTweets } from './actions/favorites'
+import { fetchUserTweets } from './actions/user_tweets'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 class App extends React.Component {
@@ -38,9 +38,9 @@ class App extends React.Component {
         <Route exact path='/' render={(props) => <Home currentUser={this.props.currentUser} myTweets={this.props.tweets}/>}/>
         <Route exact path='/about' render={(props) => <About currentUser={this.props.currentUser}/>}/>
         <Route exact path='/login' component={Login} />
-        <Route exact path='/map' render={(props) => <MapContainer myTweets={this.props.tweets} currentUser={this.props.currentUser}/>} />
+        <Route exact path='/map' render={(props) => <MapContainer myUserTweets={this.props.user_tweets} myTweets={this.props.tweets} currentUser={this.props.currentUser}/>} />
         <Route exact path='/mapbox' component={Map} />
-        <Route exact path='/favorites' component={Favorites} />
+        <Route exact path='/favorites' render={(props) => <Favorites myUserTweets={this.props.user_tweets} currentUser={this.props.currentUser}/>} />
         <Route exact path='/post_favorites' component={PostFavorites} />
       </div>
     ); //return
