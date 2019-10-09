@@ -23,6 +23,7 @@ export class Favorites extends Component {
     this.state = {
       selectedTweet: [],
       selectedURL: [],
+      selectedComment: [],
       selectedTweetID: [],
       activeMarker: {},
       showingInfoWindow: false
@@ -34,6 +35,7 @@ export class Favorites extends Component {
           selectedTweet: this.props.myUserTweets.tweets[marker.id].text,
           selectedURL: this.props.myUserTweets.tweets[marker.id].url,
           selectedTweetID: this.props.myUserTweets.tweets[marker.id].id,
+          selectedComment: this.props.myUserTweets.tweets[marker.id].comment,
           activeMarker: marker,
           showingInfoWindow: true
           //redirect: false
@@ -90,6 +92,8 @@ export class Favorites extends Component {
           <div>
             <p>{this.state.selectedTweet}</p>
             <a href={this.state.selectedURL} target="_blank">{this.state.selectedURL}</a>
+            <br/>
+            <p>My comment: {this.state.selectedComment}</p>
           </div>
         </InfoWindowEx>
       : null
