@@ -9,12 +9,13 @@ class Api::V1::UserTweetsController < ApplicationController
       ##binding.pry
       @favorites = UserTweet.where(:user_id => current_user.id)
       ##render json: @favorites
-      @my_users = UserTweet.pluck(:tweet_id)
-      @user_tweets = Tweet.where(:id => @my_users)
+      @my_tweet_ids = UserTweet.pluck(:tweet_id)
+      @user_t = Tweet.where(:id => @my_tweet_ids)
+      @user_tweets = @user_t.all.map{ |t| t.attributes.merge({ comment: UserTweet.where(:tweet_id => t.id).pluck(:comment)[0] }) }
       ##binding.pry
       render json: @user_tweets
     else
-      render json: {error: "something"}
+      render json: {error: "not logged in, check user_tweets controller"}
     end
   end
 
