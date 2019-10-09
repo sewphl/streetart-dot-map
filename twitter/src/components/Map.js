@@ -83,7 +83,7 @@ export class MapContainer extends Component {
     }
 
   render() {
-    debugger
+    //debugger
     //console.log(this.props.currentUser)
     return (
       <>
