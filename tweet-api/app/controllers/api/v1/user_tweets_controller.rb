@@ -3,14 +3,18 @@ class Api::V1::UserTweetsController < ApplicationController
   before_action :set_user_tweet, only: [:show, :update]
 
   def index
+    ##binding.pry
     ##@favorites = UserTweet.all
     if logged_in?
-      binding.pry
+      ##binding.pry
       @favorites = UserTweet.where(:user_id => current_user.id)
       ##render json: @favorites
       @my_users = UserTweet.pluck(:tweet_id)
       @user_tweets = Tweet.where(:id => @my_users)
+      ##binding.pry
       render json: @user_tweets
+    else
+      render json: {error: "something"}
     end
   end
 
