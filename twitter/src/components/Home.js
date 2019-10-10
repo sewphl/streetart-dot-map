@@ -10,7 +10,12 @@ export default class Home extends React.Component {
   render() {
 
     return (
-      <Container><h1>still home</h1></Container>
+      <Container>
+      <h1>home</h1>
+      <h6>log in to view a map of geolocated streetart tweets.
+      <br/>
+      comment on and save your favorites.</h6>
+      </Container>
     );
     console.log(this.state.myUser)
   }
