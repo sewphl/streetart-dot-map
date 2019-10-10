@@ -12,6 +12,7 @@ import Favorites from './components/Favorites'
 import MapContainer from './components/Map'
 import Map from './components/Mapbox'
 import PostFavorites from './components/PostFavorites'
+import Signup from './components/Signup.js'
 import { fetchTweets } from './actions/tweets'
 import { fetchUserTweets } from './actions/user_tweets'
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -35,6 +36,7 @@ class App extends React.Component {
           />
         </Helmet>
         <NavBar />
+        <Route exact path='/signup' render={({history})=><Signup history={history}/>}/>
         <Route exact path='/' render={(props) => <Home currentUser={this.props.currentUser} myTweets={this.props.tweets}/>}/>
         <Route exact path='/about' render={(props) => <About currentUser={this.props.currentUser}/>}/>
         <Route exact path='/login' component={Login} />
