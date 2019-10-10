@@ -7,6 +7,9 @@ export default class About extends React.Component {
     return (
       <Container>
         <h1>about</h1>
+        <h6>
+        visualizing streetart as it is posted on twitter around the world.
+        </h6>
       </Container>
     )
   }
