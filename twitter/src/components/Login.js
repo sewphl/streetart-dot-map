@@ -28,7 +28,7 @@ const Login = ({ submit, updateLoginForm, login, history }) => {
       <br/>
       <input placeholder="email" value={submit.email} name="email" type="text" onChange={handleInputChange} />
       <br/>
-      <input placeholder="password" value={submit.password} name="password" type="text" onChange={handleInputChange} />
+      <input placeholder="password" value={submit.password} name="password" type="password" onChange={handleInputChange} />
       <br/>
       <input type="submit" value="Login"/>
     </form>
