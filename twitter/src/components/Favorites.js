@@ -71,17 +71,17 @@ export class Favorites extends Component {
       <>
       <Map
         google={this.props.google}
-        zoom={10}
+        zoom={5}
         style={mapStyles}
         initialCenter={{
-         //lat: 40.7831,
-         //lng: -73.9712
+         lat: 40.7831,
+         lng: -73.9712
          //lat: 34.5331,
          //lng: 69.1661,
          //lat: 44.49899241,
          //lng: 11.34389529
-         lat: 41.6362,
-         lng: -70.9342
+         //lat: 41.6362,
+         //lng: -70.9342
        }}
        >
        {this.displayMarkers()}
