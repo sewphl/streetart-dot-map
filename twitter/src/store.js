@@ -6,6 +6,7 @@ import loginForm from './reducers/loginForm'
 import tweetsReducer from './reducers/tweets'
 import favorites from './reducers/favorites'
 import userTweetsReducer from './reducers/user_tweets'
+import signup from './reducers/signup'
 
 const reducer = combineReducers({
   user: usersReducer,
@@ -13,7 +14,8 @@ const reducer = combineReducers({
   loginForm: loginForm,
   tweets: tweetsReducer,
   favoritesForm: favorites,
-  user_tweets: userTweetsReducer
+  user_tweets: userTweetsReducer,
+  signupForm: signup
 })
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(reducer, composeEnhancer(applyMiddleware(thunk)))
