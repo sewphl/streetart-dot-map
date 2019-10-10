@@ -3,7 +3,6 @@ import { Map, GoogleApiWrapper, InfoWindow, Marker, GoogleMap } from 'google-map
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import store from '../store'
-import Display from './Display'
 import Container from 'react-bootstrap/Container'
 import { favorite, updateFavoriteForm } from "../actions/favorites"
 import InfoWindowEx from './InfoWindowEx'
