@@ -4,8 +4,6 @@ import { updateSignupForm } from "../actions/signup.js"
 import { signup } from "../actions/currentUser.js"
 import Container from 'react-bootstrap/Container'
 
-
-
 const Signup = ({ signupFormData, updateSignupForm, signup, history }) => {
 
   const handleUserInfoInputChange = event => {
