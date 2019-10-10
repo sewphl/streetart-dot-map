@@ -12,7 +12,7 @@ export default class Home extends React.Component {
     return (
       <Container>
       <h1>home</h1>
-      <h6>log in to view a map of geolocated streetart tweets.
+      <h6><Link to="/signup">Sign Up</Link> or <Link to="/login">Log In</Link> to view a map of geolocated streetart tweets.
       <br/>
       comment on and save your favorites.</h6>
       </Container>
