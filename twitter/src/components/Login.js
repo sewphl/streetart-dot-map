@@ -17,7 +17,8 @@ const Login = ({ submit, updateLoginForm, login, history }) => {
 
   const handleSubmit = event => {
     event.preventDefault()
-    login(submit)
+    login(submit, history)
+    alert("logged in!")
   }
 
   return (

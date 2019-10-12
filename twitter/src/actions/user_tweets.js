@@ -5,6 +5,7 @@ export function fetchUserTweets() {
     return fetch('http://localhost:3000/api/v1/get_user_tweets',{
       credentials: "include"})
     .then(response => response.json())
+    //.then(myJson=> console.log(myJson))
       //.then(response => {
       //  debugger
         //if (response.error) {
