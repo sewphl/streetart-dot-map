@@ -21,7 +21,7 @@ class App extends React.Component {
   componentDidMount() {
     this.props.getCurrentUser()
     this.props.fetchTweets()
-    this.props.fetchUserTweets()
+    //this.props.fetchUserTweets()
   }
   render() {
     return (
@@ -42,7 +42,7 @@ class App extends React.Component {
         <Route exact path='/login' component={Login} />
         <Route exact path='/map' render={(props) => <MapContainer myUserTweets={this.props.user_tweets} myTweets={this.props.tweets} currentUser={this.props.currentUser}/>} />
         <Route exact path='/mapbox' component={Map} />
-        <Route exact path='/favorites' render={(props) => <Favorites myUserTweets={this.props.user_tweets} currentUser={this.props.currentUser}/>} />
+        <Route exact path='/favorites' render={(props) => <Favorites currentUser={this.props.currentUser}/>} /> 
         <Route exact path='/post_favorites' component={PostFavorites} />
       </div>
     ); //return
@@ -57,4 +57,5 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect (mapStateToProps,{getCurrentUser,fetchTweets, fetchUserTweets})(App);
+//export default connect (mapStateToProps,{getCurrentUser,fetchTweets, fetchUserTweets})(App);
+export default connect (mapStateToProps,{getCurrentUser,fetchTweets})(App);

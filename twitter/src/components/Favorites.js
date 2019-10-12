@@ -6,6 +6,7 @@ import store from '../store'
 import Container from 'react-bootstrap/Container'
 import { favorite, updateFavoriteForm } from "../actions/favorites"
 import InfoWindowEx from './InfoWindowEx'
+import { fetchUserTweets } from '../actions/user_tweets'
 
 const mapStyles = {
   margin: 'auto',
@@ -14,6 +15,12 @@ const mapStyles = {
 };
 
 export class Favorites extends Component {
+
+  componentWillMount() {
+    this.props.fetchUserTweets().then(res => {
+      this.setState({items: res.payload});
+    })
+  }
 
   constructor(props) {
     super(props);
@@ -25,19 +32,20 @@ export class Favorites extends Component {
       selectedComment: [],
       selectedTweetID: [],
       activeMarker: {},
-      showingInfoWindow: false
+      showingInfoWindow: false,
+      items: []
     };
   }
 
   onMarkerClick = (marker) => {
       this.setState({
-          selectedTweet: this.props.myUserTweets.tweets[marker.id].text,
-          selectedURL: this.props.myUserTweets.tweets[marker.id].url,
-          selectedTweetID: this.props.myUserTweets.tweets[marker.id].id,
-          selectedComment: this.props.myUserTweets.tweets[marker.id].comment,
+          selectedTweet: this.props.user_tweets.tweets[marker.id].text,
+          selectedURL: this.props.user_tweets.tweets[marker.id].url,
+          selectedTweetID: this.props.user_tweets.tweets[marker.id].id,
+          selectedComment: this.props.user_tweets.tweets[marker.id].comment,
           activeMarker: marker,
-          showingInfoWindow: true
-          //redirect: false
+          showingInfoWindow: true,
+          redirect: false
       })
       console.log(this.state.selectedTweet)
   }
@@ -46,14 +54,15 @@ export class Favorites extends Component {
   if (this.state.showingInfoWindow) {
     this.setState({
       showingInfoWindow: false,
-      activeMarker: null
+      activeMarker: null,
+      redirect: true
     })
   }
 };
 
     displayMarkers = () => {
 
-      return this.props.myUserTweets.tweets.map((art, index) => {
+      return this.state.items.map((art, index) => {
         return <Marker key={index} id={index} position={{
          lat: art.lon*1,
          lng: art.lat*1
@@ -65,13 +74,17 @@ export class Favorites extends Component {
     }
 
   render() {
+    //debugger
     //console.log(this.props.currentUser)
+    console.log(this.state.items)
+    //debugger
     return (
       <>
       <Map
         google={this.props.google}
         zoom={5}
         style={mapStyles}
+        onClick={this.onMapClicked}
         initialCenter={{
          lat: 40.7831,
          lng: -73.9712
@@ -87,7 +100,7 @@ export class Favorites extends Component {
        { this.state.showingInfoWindow ?
          <InfoWindowEx
         position={this.state.activeMarker.position}  pixelOffset={new this.props.google.maps.Size(0, -30)}
-        visible={true}>
+        visible={this.state.showingInfoWindow}>
           <div>
             <p>{this.state.selectedTweet}</p>
             <a href={this.state.selectedURL} target="_blank">{this.state.selectedURL}</a>
@@ -102,14 +115,15 @@ export class Favorites extends Component {
     );
   }
 }
-//  const mapStateToProps = state => {
-//    return {
-//      //postData: state.favoritesForm
-//    }
-//  }
+
+const mapStateToProps = state => {
+  return {
+    user_tweets: state.user_tweets
+  }
+}
 
 const WrappedContainer = GoogleApiWrapper({
     apiKey: process.env.REACT_APP_GOOGLE_MAPS_KEY
   })(Favorites);
 
-export default connect (null,null)(WrappedContainer)
+export default connect (mapStateToProps,{fetchUserTweets})(WrappedContainer)
