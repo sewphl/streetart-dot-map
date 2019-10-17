@@ -18,7 +18,7 @@ export class Favorites extends Component {
 
   componentWillMount() {
     this.props.fetchUserTweets().then(res => {
-      this.setState({items: res.payload});
+      this.setState({favoriteTweets: res.payload});
     })
   }
 
@@ -33,7 +33,7 @@ export class Favorites extends Component {
       selectedTweetID: [],
       activeMarker: {},
       showingInfoWindow: false,
-      items: []
+      favoriteTweets: []
     };
   }
 
@@ -62,7 +62,7 @@ export class Favorites extends Component {
 
     displayMarkers = () => {
 
-      return this.state.items.map((art, index) => {
+      return this.state.favoriteTweets.map((art, index) => {
         return <Marker key={index} id={index} position={{
          lat: art.lon*1,
          lng: art.lat*1
@@ -80,20 +80,18 @@ export class Favorites extends Component {
     //debugger
     return (
       <>
+      <Container>
+      <h1>favorite tweets</h1>
+      <h6>click on the markers to view your favorite tweets</h6>
+      </Container>
       <Map
         google={this.props.google}
-        zoom={5}
+        zoom={7}
         style={mapStyles}
         onClick={this.onMapClicked}
         initialCenter={{
          lat: 40.7831,
          lng: -73.9712
-         //lat: 34.5331,
-         //lng: 69.1661,
-         //lat: 44.49899241,
-         //lng: 11.34389529
-         //lat: 41.6362,
-         //lng: -70.9342
        }}
        >
        {this.displayMarkers()}

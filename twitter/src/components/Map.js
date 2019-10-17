@@ -6,6 +6,7 @@ import store from '../store'
 import Container from 'react-bootstrap/Container'
 import { favorite, updateFavoriteForm } from "../actions/favorites"
 import InfoWindowEx from './InfoWindowEx'
+//import InfoWindowEx from './InfoWindow2'
 
 const mapStyles = {
   margin: 'auto',
@@ -46,7 +47,9 @@ export class MapContainer extends Component {
     event.preventDefault()
     //debugger
     //debugger
+    console.log('A')
     this.props.favorite(this.props.postData)
+    console.log('B')
     //this.setState({
     //  showingInfoWindow: false,
     //  activeMarker: null
@@ -60,8 +63,8 @@ export class MapContainer extends Component {
           selectedURL: this.props.myTweets.tweets[marker.id].url,
           selectedTweetID: this.props.myTweets.tweets[marker.id].id,
           activeMarker: marker,
-          showingInfoWindow: true
-          //redirect: false
+          showingInfoWindow: true,
+          redirect: false
       })
       console.log(this.state.selectedTweet)
   }
@@ -95,21 +98,22 @@ export class MapContainer extends Component {
   render() {
     //debugger
     //console.log(this.props.currentUser)
+    console.log("rerendered")
+    console.log(this.state.activeMarker.position)
+    console.log(this.props)
     return (
       <>
+      <Container>
+      <h1>tweets</h1>
+      <h6>click on a marker to view tweet and add to favorites</h6>
+      </Container>
       <Map
         google={this.props.google}
-        zoom={5}
+        zoom={7}
         style={mapStyles}
         initialCenter={{
          lat: 40.7831,
          lng: -73.9712
-         //lat: 34.5331,
-         //lng: 69.1661,
-         //lat: 44.49899241,
-         //lng: 11.34389529
-         //lat: 41.6362,
-         //lng: -70.9342
        }}
        >
        {this.displayMarkers()}
@@ -121,7 +125,7 @@ export class MapContainer extends Component {
             <p>{this.state.selectedTweet}</p>
             <a href={this.state.selectedURL} target="_blank">{this.state.selectedURL}</a>
             <br />
-            <form  onSubmit = {this.handleSubmit}>
+            <form onSubmit = {this.handleSubmit}>
               <input type="hidden" name="user_id" value={this.props.postData.user_id = this.props.currentUser.id} />
               <input type="hidden" name="tweet_id" value={this.props.postData.tweet_id = this.state.selectedTweetID} />
               <textarea name="comment" value={this.props.postData.comment} onChange={this.handleInputChange} placeholder="Add a note" cols="20" rows="5"></textarea>
