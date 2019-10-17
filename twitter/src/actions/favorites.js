@@ -20,8 +20,6 @@ export const resetFavorite = () => {
 
 //async
 export const favorite = theFavorite => {
-  console.log('C')
-
   return dispatch => {
   return fetch(("http://localhost:3000/api/v1/post_user_tweets"), {
       //credentials: "include",
@@ -38,12 +36,10 @@ export const favorite = theFavorite => {
           //alert(response.error)
           console.log(response)
         } else {
-          console.log('D')
           dispatch(postFavorite(response))
           //history.push('/')
         }
       })
       .catch(console.log)
   }
-  console.log('E')
 }
