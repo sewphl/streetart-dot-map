@@ -31,11 +31,9 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "yarn --cwd client install && yarn --cwd client build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "deploy": "cp -a client/build/. public/",
-    "heroku-postbuild": "cd client && npm install && npm install --only=dev --no-shrinkwrap && npm run build"
+    "heroku-postbuild": "npm install --only=dev && npm install && npm run build"
   },
   "eslintConfig": {
     "extends": "react-app"
