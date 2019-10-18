@@ -1,6 +1,6 @@
 {
   "name": "twitter",
-  "homepage": "https://streetart-dot-map.herokuapp.com",
+  "homepage": ".",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
