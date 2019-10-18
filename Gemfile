@@ -30,6 +30,7 @@ gem 'dotenv'
 gem 'dotenv-rails'
 gem 'bcrypt'
 gem 'fast_jsonapi'
+gem 'pg'
 
 
 gem 'foreman', '~> 0.82.0'
@@ -37,7 +38,7 @@ gem 'foreman', '~> 0.82.0'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
-  gem 'sqlite3'
+  ##gem 'sqlite3'
 end
 
 group :development do
@@ -47,10 +48,10 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
-group :production do
- gem 'pg', '~> 0.20'
- gem 'rails_12factor', '0.0.2'
-end
+##group :production do
+## gem 'pg', '~> 0.20'
+## gem 'rails_12factor', '0.0.2'
+##end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
