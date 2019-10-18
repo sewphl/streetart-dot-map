@@ -27,7 +27,10 @@
     "redux-thunk": "^2.3.0",
     "remote-redux-devtools": "^0.5.16",
     "watchman": "^1.0.0",
-    "yarn": "^1.17.3"
+    "yarn": "^1.17.3",
+    "engines": {
+      "node": "10.3.0"
+    }
   },
   "scripts": {
     "start": "react-scripts start",
