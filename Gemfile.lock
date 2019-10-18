@@ -183,7 +183,7 @@ DEPENDENCIES
   fast_jsonapi
   foreman (~> 0.82.0)
   listen (~> 3.0.5)
-  pg (= 0.17.1)
+  pg
   pry
   puma (~> 3.0)
   rack-cors
