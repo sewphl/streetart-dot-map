@@ -2,7 +2,7 @@ export function fetchUserTweets() {
   //debugger
   return (dispatch) => {
     dispatch({ type: 'LOADING_USER_TWEETS' });
-    return fetch('http://localhost:3000/api/v1/get_user_tweets',{
+    return fetch(`/api/v1/get_user_tweets`,{  //http://localhost:3000
       credentials: "include"})
     .then(response => response.json())
     //.then(myJson=> console.log(myJson))

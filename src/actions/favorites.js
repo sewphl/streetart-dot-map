@@ -21,7 +21,7 @@ export const resetFavorite = () => {
 //async
 export const favorite = theFavorite => {
   return dispatch => {
-  return fetch(("http://localhost:3000/api/v1/post_user_tweets"), {
+  return fetch((`/api/v1/post_user_tweets`), {  //http://localhost:3000
       //credentials: "include",
       method: "POST",
       headers: {
