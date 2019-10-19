@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get '*path', to: "application#fallback_index_html", constraints: ->(request) do
+    !request.xhr? && request.format.html?
+  end
   post "/api/v1/signup", to: "api/v1/users#create"
   get "/api/v1/get_user_tweets", to: "api/v1/user_tweets#index"
   post "/api/v1/post_user_tweets", to: "api/v1/user_tweets#create"
