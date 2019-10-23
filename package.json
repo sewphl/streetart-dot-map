@@ -2,7 +2,8 @@
   "name": "twitter",
   "homepage": ".",
   "version": "0.1.0",
-  "proxy": "http://localhost:3001",
+  "main": "index.js",
+  "proxy": "http://localhost:3000",
   "private": true,
   "dependencies": {
     "bootstrap": "^4.3.1",
@@ -35,8 +36,14 @@
     }
   },
   "scripts": {
+    "build": "cd client && yarn install && yarn build && cd ..",
+    "deploy": "cp -a client/build/. public/",
+    "postinstall": "yarn build && yarn deploy && echo 'Client built!'"
+  },
+  "scripts": {
     "start": "react-scripts start",
     "start-js": "sleep 2 && react-scripts start",
+    "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "heroku-postbuild": "npm run build"
