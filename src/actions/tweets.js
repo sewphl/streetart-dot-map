@@ -1,5 +1,3 @@
-import fetch from 'isomorphic-fetch';
-
 // synchronous action creators
 //export const setTweets = tweet => {
 //  return {
