@@ -147,7 +147,7 @@ export class MapContainer extends Component {
   }
 
 const WrappedContainer = GoogleApiWrapper({
-    apiKey: process.env.REACT_APP_GOOGLE_MAPS_KEY
+    apiKey: fs;//process.env.REACT_APP_GOOGLE_MAPS_KEY
   })(MapContainer);
 
 export default connect (mapStateToProps,{updateFavoriteForm, favorite})(WrappedContainer)
