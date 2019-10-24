@@ -1,1 +1,1 @@
-web: PORT=SERVER_PORT npm start
+web: bundle exec rails s
