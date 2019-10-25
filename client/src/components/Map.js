@@ -8,6 +8,27 @@ import { favorite, updateFavoriteForm } from "../actions/favorites"
 import InfoWindowEx from './InfoWindowEx'
 //import InfoWindowEx from './InfoWindow2'
 
+
+const {auth} = require('google-auth-library');
+
+// load the environment variable with our keys
+const keysEnvVar = process.env['CREDS'];
+if (!keysEnvVar) {
+  throw new Error('The $CREDS environment variable was not found!');
+}
+const keys = JSON.parse(keysEnvVar);
+
+async function main() {
+  // load the JWT or UserRefreshClient from the keys
+  const client = auth.fromJSON(keys);
+  client.scopes = ['https://www.googleapis.com/auth/cloud-platform'];
+  const url = `https://dns.googleapis.com/dns/v1/projects/${keys.project_id}`;
+  const res = await client.request({url});
+  console.log(res.data);
+}
+
+main().catch(console.error);
+
 const mapStyles = {
   margin: 'auto',
   width: '70%',
@@ -147,7 +168,7 @@ export class MapContainer extends Component {
   }
 
 const WrappedContainer = GoogleApiWrapper({
-    apiKey: process.env.REACT_GOOGLE_SERVICE_KEY//process.env.REACT_APP_GOOGLE_MAPS_KEY
+    apiKey: process.env.REACT_GOOGLE_PRIVATE_KEY.replace(/\\n/g, '\n')//process.env.REACT_APP_GOOGLE_MAPS_KEY
   })(MapContainer);
 
 export default connect (mapStateToProps,{updateFavoriteForm, favorite})(WrappedContainer)
