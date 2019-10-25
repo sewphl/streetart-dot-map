@@ -14,8 +14,8 @@ const mapStyles = {
   padding: '20px'
 };
 
-const reactApiKey0 = process.env.REACT_GOOGLE_API_PRIVATE_KEY
-const reactApiKey = str_replace(/\\n/g, "\n", reactApiKey0)
+//const reactApiKey0 = process.env.REACT_GOOGLE_API_PRIVATE_KEY
+//const reactApiKey = str_replace(/\\n/g, "\n", reactApiKey0)
 
 
 export class MapContainer extends Component {
@@ -151,7 +151,7 @@ export class MapContainer extends Component {
   }
 
 const WrappedContainer = GoogleApiWrapper({
-    apiKey: reactApiKey;//process.env.REACT_GOOGLE_PRIVATE_KEY.replace(/\\n/g, '\n')//process.env.REACT_APP_GOOGLE_MAPS_KEY
+    apiKey: process.env.REACT_GOOGLE_PRIVATE_KEY.replace(/\\n/g, '\n')//process.env.REACT_APP_GOOGLE_MAPS_KEY
   })(MapContainer);
 
 export default connect (mapStateToProps,{updateFavoriteForm, favorite})(WrappedContainer)
