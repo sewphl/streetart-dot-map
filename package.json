@@ -5,7 +5,6 @@
     "npm": "6.11.3"
   },
   "scripts": {
-    "preinstall": "node preinstall.js",
     "build": "cd client && npm install && npm run build && cd ..",
     "deploy": "cp -a client/build/. public/",
     "postinstall": "npm run build && npm run deploy && echo 'Client built!'"
