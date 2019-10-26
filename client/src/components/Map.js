@@ -152,7 +152,7 @@ export class MapContainer extends Component {
   }
 
 const WrappedContainer = GoogleApiWrapper({
-    apiKey: REACT_GMAPS_KEY.replace(/\\n/g, '\n')
+    apiKey: REACT_GMAPS_KEY
   })(MapContainer);
 
 export default connect (mapStateToProps,{updateFavoriteForm, favorite})(WrappedContainer)
