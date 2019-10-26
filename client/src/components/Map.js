@@ -7,7 +7,6 @@ import Container from 'react-bootstrap/Container'
 import { favorite, updateFavoriteForm } from "../actions/favorites"
 import InfoWindowEx from './InfoWindowEx'
 //import InfoWindowEx from './InfoWindow2'
-require('dotenv').config()
 
 const mapStyles = {
   margin: 'auto',
