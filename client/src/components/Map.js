@@ -9,9 +9,6 @@ import InfoWindowEx from './InfoWindowEx'
 //import InfoWindowEx from './InfoWindow2'
 //const {REACT_GMAPS_KEY} = process.env;
 
-const myMapKey0 = process.env.REACT_GMAPS_KEY
-const myMapKey = myMapKey0.replace(/\\n/g, '\n')
-
 const mapStyles = {
   margin: 'auto',
   width: '70%',
@@ -155,7 +152,8 @@ export class MapContainer extends Component {
   }
 
 const WrappedContainer = GoogleApiWrapper({
-    apiKey: myMapKey
+    apiKey: process.env.REACT_GMAPS_KEY
+    debugger
   })(MapContainer);
 
 export default connect (mapStateToProps,{updateFavoriteForm, favorite})(WrappedContainer)
