@@ -7,6 +7,7 @@ import Container from 'react-bootstrap/Container'
 import { favorite, updateFavoriteForm } from "../actions/favorites"
 import InfoWindowEx from './InfoWindowEx'
 //import InfoWindowEx from './InfoWindow2'
+const {REACT_GMAPS_KEY} = process.env;
 
 const mapStyles = {
   margin: 'auto',
