@@ -7,7 +7,7 @@ import Container from 'react-bootstrap/Container'
 import { favorite, updateFavoriteForm } from "../actions/favorites"
 import InfoWindowEx from './InfoWindowEx'
 //import InfoWindowEx from './InfoWindow2'
-const {REACT_GMAPS_KEY} = process.env;
+//const {REACT_GMAPS_KEY} = process.env;
 
 const mapStyles = {
   margin: 'auto',
@@ -152,7 +152,7 @@ export class MapContainer extends Component {
   }
 
 const WrappedContainer = GoogleApiWrapper({
-    apiKey: REACT_GMAPS_KEY
+    apiKey: process.env.REACT_GMAPS_KEY
   })(MapContainer);
 
 export default connect (mapStateToProps,{updateFavoriteForm, favorite})(WrappedContainer)
