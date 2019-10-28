@@ -8,6 +8,7 @@
     "build": "cd client && npm install && npm run build && cd ..",
     "deploy": "cp -a client/build/. public/",
     "postinstall": "npm run build && npm run deploy && echo 'Client built!'",
+    "heroku-postbuild": "webpack -p",
     "webpack:deploy": "webpack --config webpack.config-prod.js && echo 'AAAAAAND GOOGLE MAPS!'"
   },
   "dependencies": {
