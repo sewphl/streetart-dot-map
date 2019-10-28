@@ -14,10 +14,6 @@ const mapStyles = {
   padding: '20px'
 };
 
-//const reactApiKey0 = process.env.REACT_GOOGLE_API_PRIVATE_KEY
-//const reactApiKey = str_replace(/\\n/g, "\n", reactApiKey0)
-
-
 export class MapContainer extends Component {
 
   constructor(props) {
