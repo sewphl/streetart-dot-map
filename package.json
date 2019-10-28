@@ -5,14 +5,15 @@
     "npm": "6.11.3"
   },
   "scripts": {
-    "build": "webpack && cd client && npm install && npm run build && cd ..",
+    "build": "cd client && npm install && npm run build && cd ..",
     "deploy": "cp -a client/build/. public/",
     "postinstall": "npm run build && npm run deploy && echo 'Client built!'",
-    "webpack:deploy": "webpack --config webpack.config-prod.js && echo 'AAAAAAND GOOGLE MAPS!'"
+    "webpack:deploy": "webpack --config webpack.config-prod.js"
   },
   "dependencies": {
     "google-auth-library": "^5.5.1",
-    "google-map-react": "^1.1.5"
+    "google-map-react": "^1.1.5",
+    "webpack-cli": "^3.3.9"
   },
   "devDependencies": {
     "dotenv": "^8.2.0",
