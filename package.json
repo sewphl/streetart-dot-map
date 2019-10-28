@@ -10,7 +10,8 @@
     "postinstall": "npm run build && npm run deploy && echo 'Client built!'"
   },
   "dependencies": {
-    "google-auth-library": "^5.5.1"
+    "google-auth-library": "^5.5.1",
+    "google-map-react": "^1.1.5"
   },
   "devDependencies": {
     "dotenv": "^8.2.0"
