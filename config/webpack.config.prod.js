@@ -19,8 +19,6 @@ config.plugins = [
 module.exports = {
   config,
   plugins: [
-    new EnvironmentPlugin(["REACT_GMAPS_PRIVATE_KEY"]),
-    new EnvironmentPlugin(["REACT_GMAPS_KEY"]),
     new EnvironmentPlugin(["REACT_APP_GOOGLE_MAPS_KEY"])
   ]
 }
