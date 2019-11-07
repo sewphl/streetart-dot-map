@@ -8,10 +8,10 @@ class TweetCreator
   def get_tweet
     i = 0
     while true
+    begin
       if i >= 5
         break
       end
-    begin
         config = {
           consumer_key: ENV['CONSUMER_KEY'],
           consumer_secret: ENV['CONSUMER_SECRET'],
