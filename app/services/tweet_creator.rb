@@ -32,7 +32,7 @@ class TweetCreator
             end
             puts i
             i += 1
-            if i >= 5
+            if i >= 10
               break
             end
         end
