@@ -9,9 +9,6 @@ class TweetCreator
     i = 0
     while true
     begin
-      if i >= 5
-        break
-      end
         config = {
           consumer_key: ENV['CONSUMER_KEY'],
           consumer_secret: ENV['CONSUMER_SECRET'],
@@ -35,6 +32,9 @@ class TweetCreator
             end
             puts i
             i += 1
+            if i >= 5
+              break
+            end
         end
     rescue Exception => e
         puts 'error, waiting for 3s: ' + e.class.to_s
