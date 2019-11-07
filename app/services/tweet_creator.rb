@@ -33,7 +33,7 @@ class TweetCreator
                 :lon => tweet.geo.coordinates[0], :lat => tweet.geo.coordinates[1])
               puts tweet.text
             end
-            puts 1
+            puts i
             i += 1
         end
     rescue Exception => e
