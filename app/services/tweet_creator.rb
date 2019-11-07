@@ -7,8 +7,8 @@ class TweetCreator
 
   def get_tweet
     i = 0
-    while true
-    begin
+    ##while true
+    ##begin
         config = {
           consumer_key: ENV['CONSUMER_KEY'],
           consumer_secret: ENV['CONSUMER_SECRET'],
@@ -40,7 +40,7 @@ class TweetCreator
         puts 'error, waiting for 3s: ' + e.class.to_s
         sleep 3
     end
-    end
-  end
+    ##end
+  ##end
 
 end
