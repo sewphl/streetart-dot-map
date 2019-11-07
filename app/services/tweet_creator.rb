@@ -6,7 +6,11 @@ require 'dotenv-rails'
 class TweetCreator
 
   def get_tweet
+    i = 0
     while true
+      if i >= 5
+        break
+      end
     begin
         config = {
           consumer_key: ENV['CONSUMER_KEY'],
@@ -29,6 +33,8 @@ class TweetCreator
                 :lon => tweet.geo.coordinates[0], :lat => tweet.geo.coordinates[1])
               puts tweet.text
             end
+            puts 1
+            i += 1
         end
     rescue Exception => e
         puts 'error, waiting for 3s: ' + e.class.to_s
