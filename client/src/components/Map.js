@@ -6,7 +6,6 @@ import store from '../store'
 import Container from 'react-bootstrap/Container'
 import { favorite, updateFavoriteForm } from "../actions/favorites"
 import InfoWindowEx from './InfoWindowEx'
-//const {REACT_GMAPS_KEY} = process.env;
 
 //from https://snazzymaps.com/style/25/blue-water
 //by Xavier: https://www.xavierfoucrier.fr/
