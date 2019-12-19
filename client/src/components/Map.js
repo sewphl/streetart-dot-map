@@ -130,9 +130,7 @@ export class MapContainer extends Component {
     event.preventDefault()
     //debugger
     //debugger
-    console.log('A')
     this.props.favorite(this.props.postData)
-    console.log('B')
     //this.setState({
     //  showingInfoWindow: false,
     //  activeMarker: null
@@ -155,12 +153,10 @@ export class MapContainer extends Component {
   onMapClicked = (props) => {
     //debugger
   if (this.state.showingInfoWindow) {
-    console.log("this works")
     this.setState({
       showingInfoWindow: false,
       activeMarker: null
     })
-    console.log("why doesnt that work")
     console.log(this.state.showingInfoWindow)
     console.log(this.state.activeMarker)
   }
@@ -212,7 +208,6 @@ export class MapContainer extends Component {
             <form onSubmit = {this.handleSubmit}>
               <input type="hidden" name="user_id" value={this.props.postData.user_id = this.props.currentUser.id} />
               <input type="hidden" name="tweet_id" value={this.props.postData.tweet_id = this.state.selectedTweetID} />
-              <textarea name="comment" value={this.props.postData.comment} onChange={this.handleInputChange} placeholder="Add a note" cols="20" rows="5"></textarea>
               <br/><input type="submit" value="Add to my favorites" />
             </form>
           </div>
