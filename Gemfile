@@ -31,8 +31,6 @@ gem 'dotenv-rails'
 gem 'bcrypt'
 gem 'fast_jsonapi'
 gem 'pg'
-
-
 gem 'foreman', '~> 0.82.0'
 
 group :development, :test do
