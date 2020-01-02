@@ -1,4 +1,5 @@
 *.env
+*secrets.yml
 
 # dependencies
 /node_modules
