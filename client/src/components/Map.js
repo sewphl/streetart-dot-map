@@ -184,7 +184,11 @@ export class MapContainer extends Component {
       <>
       <Container>
       <h1>tweets</h1>
-      <h6>click on a marker to view tweet and add to favorites</h6>
+      {loggedIn ?
+        <h6>click on a marker to view tweet and add to favorites</h6>
+      :
+        <h6>click on a marker to view tweet. sign up or log in to save it to your favorites.</h6>
+      }
       </Container>
       <Map
         google={this.props.google}
@@ -205,11 +209,13 @@ export class MapContainer extends Component {
             <p>{this.state.selectedTweet}</p>
             <a href={this.state.selectedURL} target="_blank">{this.state.selectedURL}</a>
             <br />
-            <form onSubmit = {this.handleSubmit}>
-              <input type="hidden" name="user_id" value={this.props.postData.user_id = this.props.currentUser.id} />
-              <input type="hidden" name="tweet_id" value={this.props.postData.tweet_id = this.state.selectedTweetID} />
-              <br/><input type="submit" value="Add to my favorites" />
-            </form>
+            {loggedIn ?
+              <form onSubmit = {this.handleSubmit}>
+                <input type="hidden" name="user_id" value={this.props.postData.user_id = this.props.currentUser.id} />
+                <input type="hidden" name="tweet_id" value={this.props.postData.tweet_id = this.state.selectedTweetID} />
+                <br/><input type="submit" value="Add to my favorites" />
+              </form>
+            : null}
           </div>
         </InfoWindowEx>
       : null
