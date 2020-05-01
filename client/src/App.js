@@ -10,7 +10,6 @@ import About from './components/About'
 import Login from './components/Login'
 import Favorites from './components/Favorites'
 import MapContainer from './components/Map'
-import Map from './components/Mapbox'
 import PostFavorites from './components/PostFavorites'
 import Signup from './components/Signup.js'
 import { fetchTweets } from './actions/tweets'
@@ -41,8 +40,7 @@ class App extends React.Component {
         <Route exact path='/about' render={(props) => <About currentUser={this.props.currentUser}/>}/>
         <Route exact path='/login' component={Login} />
         <Route exact path='/map' render={(props) => <MapContainer myUserTweets={this.props.user_tweets} myTweets={this.props.tweets} currentUser={this.props.currentUser}/>} />
-        <Route exact path='/mapbox' component={Map} />
-        <Route exact path='/favorites' render={(props) => <Favorites currentUser={this.props.currentUser}/>} /> 
+        <Route exact path='/favorites' render={(props) => <Favorites currentUser={this.props.currentUser}/>} />
         <Route exact path='/post_favorites' component={PostFavorites} />
       </div>
     ); //return

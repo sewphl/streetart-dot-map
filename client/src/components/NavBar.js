@@ -50,15 +50,6 @@ const NavBar = ({currentUser, loggedIn}) => {
       //}}
     >About</NavLink>
     <NavLink tag={RRNavLink}
-      to="/login"
-      exact
-      //style={link}
-      //activeStyle={{
-      //  background: 'darkblue'
-      //}}
-    >Login</NavLink>
-    {loggedIn ?
-    <NavLink tag={RRNavLink}
       to="/map"
       exact
       //style={link}
@@ -66,7 +57,15 @@ const NavBar = ({currentUser, loggedIn}) => {
       //  background: 'darkblue'
       //}}
     >Map</NavLink>
-    : null}
+    <NavLink tag={RRNavLink}
+      to="/login"
+      exact
+      //style={link}
+      //activeStyle={{
+      //  background: 'darkblue'
+      //}}
+    >Login</NavLink>
+
     {loggedIn ?
       <NavLink tag={RRNavLink}
         to="/favorites"
