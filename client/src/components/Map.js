@@ -187,8 +187,7 @@ export class MapContainer extends Component {
       {this.props.loggedIn ?
         <h6>Click on a marker to view tweet and add to favorites.</h6>
       :
-        <h6>Click on a marker to view a tweet.</h6>
-        <h6><Link to="/signup">Sign Up</Link> or <Link to="/login">Log In</Link> to save it to your favorites.</h6>
+        <h6>Click on a marker to view a tweet. <Link to="/signup">Sign Up</Link> or <Link to="/login">Log In</Link> to save it to your favorites.</h6>
       }
       </Container>
       <Map
