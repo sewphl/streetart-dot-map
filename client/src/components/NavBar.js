@@ -64,7 +64,7 @@ const NavBar = ({currentUser, loggedIn}) => {
       //activeStyle={{
       //  background: 'darkblue'
       //}}
-    >Login</NavLink>
+    >Log In</NavLink>
 
     {loggedIn ?
       <NavLink tag={RRNavLink}

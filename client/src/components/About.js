@@ -9,16 +9,16 @@ export default class About extends React.Component {
   render(){
     return (
       <Container>
-        <h1>about</h1>
+        <h1>About</h1>
         <h4>
-        visualizing streetart as it is posted on twitter around the world.
+        Visualizing streetart as it is posted on Twitter around the world.
         </h4>
         <br/>
         <p>
-        this app allows logged-in users to view geolocated tweets about streetart on a map,
-        and save their favorites.<br /><br />
-        built in React-Redux with Rails/PostgreSQL back end using Twitter and Google Maps APIs.
-        hosted on Heroku. newly-published streetart tweets are added hourly with a Rake task using Heroku Scheduler.<br /><br />
+        This app posts newly-published geolocated tweets about streetart to a map,
+        and allows logged-in users to save their favorites to their own personal map.<br /><br />
+        Built in React-Redux with Rails/PostgreSQL back end using Twitter and Google Maps APIs.
+        Hosted on Heroku. Newly-published streetart tweets are added hourly with a Rake task using Heroku Scheduler.<br /><br />
         </p>
       </Container>
     )
