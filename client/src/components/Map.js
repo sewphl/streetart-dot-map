@@ -184,7 +184,7 @@ export class MapContainer extends Component {
       <>
       <Container>
       <h1>tweets</h1>
-      {loggedIn ?
+      {this.props.loggedIn ?
         <h6>click on a marker to view tweet and add to favorites</h6>
       :
         <h6>click on a marker to view tweet. sign up or log in to save it to your favorites.</h6>
@@ -209,7 +209,7 @@ export class MapContainer extends Component {
             <p>{this.state.selectedTweet}</p>
             <a href={this.state.selectedURL} target="_blank">{this.state.selectedURL}</a>
             <br />
-            {loggedIn ?
+            {this.props.loggedIn ?
               <form onSubmit = {this.handleSubmit}>
                 <input type="hidden" name="user_id" value={this.props.postData.user_id = this.props.currentUser.id} />
                 <input type="hidden" name="tweet_id" value={this.props.postData.tweet_id = this.state.selectedTweetID} />
