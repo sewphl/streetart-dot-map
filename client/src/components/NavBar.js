@@ -41,14 +41,14 @@ const NavBar = ({currentUser, loggedIn}) => {
       //  background: 'darkblue'
       //}}
     >Home</NavLink>
-    <NavLink tag={RRNavLink}
-      to="/about"
-      exact
-      //style={link}
-      //activeStyle={{
-      //  background: 'darkblue'
-      //}}
-    >About</NavLink>
+//    <NavLink tag={RRNavLink}
+//      to="/about"
+//      exact
+//      //style={link}
+//      //activeStyle={{
+//      //  background: 'darkblue'
+//      //}}
+//    >About</NavLink>
     <NavLink tag={RRNavLink}
       to="/map"
       exact

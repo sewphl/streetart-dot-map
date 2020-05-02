@@ -109,8 +109,7 @@ export class MapContainer extends Component {
       selectedURL: [],
       selectedTweetID: [],
       activeMarker: {},
-      showingInfoWindow: false,
-      loading: false
+      showingInfoWindow: false
     };
   }
 
