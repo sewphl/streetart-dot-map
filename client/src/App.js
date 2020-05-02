@@ -36,8 +36,7 @@ class App extends React.Component {
         </Helmet>
         <NavBar />
         <Route exact path='/signup' render={({history})=><Signup history={history}/>}/>
-        <Route exact path='/' render={(props) => <Home currentUser={this.props.currentUser} myTweets={this.props.tweets}/>}/>
-        //<Route exact path='/about' render={(props) => <About currentUser={this.props.currentUser}/>}/>
+        <Route exact path='/' render={(props) => <Home currentUser={this.props.currentUser} myTweets={this.props.tweets}/>}/>        
         <Route exact path='/login' component={Login} />
         <Route exact path='/map' render={(props) => <MapContainer myUserTweets={this.props.user_tweets} myTweets={this.props.tweets} currentUser={this.props.currentUser}/>} />
         <Route exact path='/favorites' render={(props) => <Favorites currentUser={this.props.currentUser}/>} />
