@@ -25,6 +25,7 @@ const Login = ({ submit, updateLoginForm, login, history }) => {
   return (
     <Container>
     <h1>Log In</h1>
+    <br/>
     <div>
       <form onSubmit={handleSubmit}>
         <input placeholder="username" value={submit.username} name="username" type="text" onChange={handleInputChange} />
@@ -35,6 +36,7 @@ const Login = ({ submit, updateLoginForm, login, history }) => {
         <br/>
         <input type="submit" value="Login"/>
       </form>
+      <br/>
     </div>
     <div>
       <h6>Don't have an account? <Link to="/signup">Sign Up</Link></h6>
