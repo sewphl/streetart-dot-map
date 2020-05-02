@@ -109,7 +109,8 @@ export class MapContainer extends Component {
       selectedURL: [],
       selectedTweetID: [],
       activeMarker: {},
-      showingInfoWindow: false
+      showingInfoWindow: false,
+      loading: false
     };
   }
 
@@ -168,7 +169,6 @@ export class MapContainer extends Component {
          lat: art.lon*1,
          lng: art.lat*1
        }}
-       //onClick={() => console.log("you clicked")}
        onClick={this.onMarkerClick}
        />
       })
@@ -196,8 +196,8 @@ export class MapContainer extends Component {
         style={mapStyles}
         styles={snazzyMapsBlueWater}
         initialCenter={{
-         lat: 40.7831,
-         lng: -73.9712
+         lat: 39.9526,
+         lng: -75.1652
        }}
        >
        {this.displayMarkers()}
