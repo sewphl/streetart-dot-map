@@ -82,11 +82,11 @@ export class Favorites extends Component {
       <>
       <Container>
       <h1>Favorite Tweets</h1>
-      {this.props.user_tweets.tweets.length >0 ?
+      {this.state.favoriteTweets.length >0 ?
         <h6>View your favorite tweets below.</h6>
       : <h6>It looks like you haven't <Link to="/map">favorited any tweets</Link> yet. </h6> }
       </Container>
-      {this.props.user_tweets.tweets.length >0 ?
+      {this.state.favoriteTweets.length >0 ?
       <Map
         google={this.props.google}
         zoom={7}
