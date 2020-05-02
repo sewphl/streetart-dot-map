@@ -33,6 +33,7 @@ const Login = ({ submit, updateLoginForm, login, history }) => {
       <br/>
       <input type="submit" value="Login"/>
     </form>
+    <h6>Don't have an account? <Link to="/signup">Sign Up</Link></h6>
     </Container>
   )
 }

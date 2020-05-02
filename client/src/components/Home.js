@@ -11,7 +11,7 @@ export default class Home extends React.Component {
 
     return (
       <Container>
-      <h1>Home</h1>
+      <h1>streetart-dot-map</h1>
       <h4>
       Visualizing streetart as it is posted on Twitter around the world.
       </h4>
