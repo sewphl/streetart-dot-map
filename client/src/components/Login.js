@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { updateLoginForm } from "../actions/loginForm"
 import { login } from "../actions/currentUser"
 import Container from 'react-bootstrap/Container'
+import { Link } from 'react-router-dom'
 
 const Login = ({ submit, updateLoginForm, login, history }) => {
 
