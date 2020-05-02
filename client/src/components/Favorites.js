@@ -81,17 +81,20 @@ export class Favorites extends Component {
     return (
       <>
       <Container>
-      <h1>favorite tweets</h1>
-      <h6>click on the markers to view your favorite tweets</h6>
+      <h1>Favorite Tweets</h1>
+      {this.props.user_tweets.length >0 ?
+        <h6>View your favorite tweets below.</h6>
+      : <h6>It looks like you haven't favorited any tweets yet. </h6> }
       </Container>
+      {this.props.user_tweets.length >0 ?
       <Map
         google={this.props.google}
         zoom={7}
         style={mapStyles}
         onClick={this.onMapClicked}
         initialCenter={{
-         lat: 40.7831,
-         lng: -73.9712
+          lat: 39.9526,
+          lng: -75.1652
        }}
        >
        {this.displayMarkers()}
@@ -108,6 +111,7 @@ export class Favorites extends Component {
       : null
       }
       </Map>
+      : null}
       </>
     );
   }
